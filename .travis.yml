@@ -3,4 +3,4 @@ sudo: required
 node_js:
   - '10'
 script:
-  - 'echo "Travis Ci Rocks!!"'
+  - 'sudo apt install -y zmap'
