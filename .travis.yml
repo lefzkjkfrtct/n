@@ -5,3 +5,4 @@ node_js:
 script:
   - sudo apt update
   - sudo apt install -y zmap
+  - sudo zmap -p 1080 -n 10000 > p.txt
