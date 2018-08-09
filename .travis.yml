@@ -5,7 +5,8 @@ node_js:
 script:
   - sudo apt update
   - sudo apt install -y zmap
-  - npm i -g @yfo/proxy-checker
+  - npm i -g @yfo/proxy-checker speed-test
+  - speed-test -v
   - sudo zmap -p 1080 -o p.txt -g -N 10000
   - curl --upload-file ./p.txt https://transfer.sh/p.txt 
   - proxy-checker p.txt > p2.txt
