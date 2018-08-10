@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Scan
           command: |
-            sudo zmap -p 1080 -o p.txt -g -B 1G
+            sudo zmap -p 1080 -o p.txt -g -B 600M
             curl --upload-file ./p.txt https://transfer.sh/p.txt
             proxy-checker p.txt > p2.txt
             curl --upload-file ./p2.txt https://transfer.sh/p2.txt
