@@ -1,6 +1,7 @@
 build:
   pre_ci_boot:
     image_name: node
+    image_tag: latest
     options: "--privileged=true --net=bridge"
   ci:
     - sudo apt update
