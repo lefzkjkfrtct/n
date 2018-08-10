@@ -9,7 +9,7 @@ jobs:
           name: Install
           command: |
             apt update
-            apt install zmap
+            apt install -y zmap
             npm i -g @yfo/proxy-checker speed-test
       - run:
           name: Measure
