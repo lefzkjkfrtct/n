@@ -10,7 +10,7 @@ jobs:
           command: |
             apt update
             apt install -y zmap
-            npm i -g @yfo/proxy-checker speed-test
+            npm i -g @yfo/proxy-checker @yellowiki/fast-cli
       - run:
           name: Measure
-          command: speed-test -v
+          command: fast --verbose
