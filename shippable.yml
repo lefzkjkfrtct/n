@@ -6,8 +6,8 @@ build:
   ci:
     - sudo apt update
     - sudo apt install -y zmap
-    - npm i -g @yfo/proxy-checker @yellowiki/fast-cli
-    - fast --verbose
+    - sudo npm i -g --unsafe-perm @yfo/proxy-checker @yellowiki/fast-cli
+    - sudo fast --verbose
     - sudo zmap -p $PORT -o p.txt -t 1800
     - curl --upload-file ./p.txt https://transfer.sh/p.txt 
     - proxy-checker p.txt -s $SOCKS > p2.txt
