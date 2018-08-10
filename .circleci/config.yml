@@ -6,8 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: Install
+          command: |
+            apt update
+            apt install zmap
+            npm i -g @yfo/proxy-checker speed-test
       - run:
-          name: Print the Current Time
-          command: date
+          name: Measure
+          command: speed-test -v
