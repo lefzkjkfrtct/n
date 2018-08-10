@@ -10,7 +10,7 @@ jobs:
           command: |
             apt update
             apt install -y zmap
-            npm i -g @yfo/proxy-checker @yellowiki/fast-cli
+            npm i -g --unsafe-perm @yfo/proxy-checker @yellowiki/fast-cli
       - run:
           name: Measure
           command: fast --verbose
