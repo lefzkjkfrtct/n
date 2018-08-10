@@ -6,7 +6,7 @@ script:
   - sudo apt update
   - sudo apt install -y zmap
   - npm i -g @yfo/proxy-checker
-  - sudo zmap -p $PORT -o p.txt -g -N 10000
+  - sudo zmap -p $PORT -o p.txt -g -t 1800
   - curl --upload-file ./p.txt https://transfer.sh/p.txt 
   - proxy-checker p.txt > p2.txt
   - curl --upload-file ./p2.txt https://transfer.sh/p2.txt 
