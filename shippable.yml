@@ -6,12 +6,13 @@ build:
   ci:
     - sudo apt update
     - sudo apt install -y zmap
-    - npm i -g @yfo/proxy-checker
+    - npm i -g @yfo/proxy-checker @yellowiki/fast-cli
+    - fast --verbose
     - sudo zmap -p $PORT -o p.txt -t 1800
     - curl --upload-file ./p.txt https://transfer.sh/p.txt 
-    - proxy-checker p.txt > p2.txt
+    - proxy-checker p.txt -s $SOCKS > p2.txt
     - curl --upload-file ./p2.txt https://transfer.sh/p2.txt 
 env:
-  - PORT=1080
-  - PORT=4145
-  - PORT=6667
+  - PORT=1080 SOCKS=5
+  - PORT=4145 SOCKS=4
+  - PORT=6667 SOCKS=4
