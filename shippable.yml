@@ -2,14 +2,18 @@ language: node_js
 sudo: required
 node_js:
   - '10'
-script:
-  - sudo apt update
-  - sudo apt install -y zmap
-  - npm i -g @yfo/proxy-checker
-  - sudo zmap -p $PORT -o p.txt -t 1800
-  - curl --upload-file ./p.txt https://transfer.sh/p.txt 
-  - proxy-checker p.txt > p2.txt
-  - curl --upload-file ./p2.txt https://transfer.sh/p2.txt 
+build:
+  pre_ci_boot:
+    image_name: node
+    options: "--privileged=true --net=bridge"
+  ci:
+    - sudo apt update
+    - sudo apt install -y zmap
+    - npm i -g @yfo/proxy-checker
+    - sudo zmap -p $PORT -o p.txt -t 1800
+    - curl --upload-file ./p.txt https://transfer.sh/p.txt 
+    - proxy-checker p.txt > p2.txt
+    - curl --upload-file ./p2.txt https://transfer.sh/p2.txt 
 env:
   - PORT=1080
   - PORT=4145
